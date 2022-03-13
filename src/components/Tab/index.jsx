@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { TabWrapper, TabNumber } from './styles';
 
 class Tab extends Component {
     static propTypes = {
         activeTab: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
+        index: PropTypes.string.isRequired,
         onClick: PropTypes.func.isRequired
     };
 
@@ -16,19 +18,18 @@ class Tab extends Component {
     render() {
         const {
             onClick,
-            props: { activeTab, label }
+            props: { activeTab, label, index }
         } = this;
 
-        let className = 'tab-list-item';
-
-        if (activeTab === label) {
-            className += ' tab-list-active';
-        }
-
         return (
-            <li className={className} onClick={onClick}>
-                {label}
-            </li>
+            <TabWrapper active={activeTab == label} onClick={onClick}>
+                <TabNumber>
+                    {index + 1}
+                </TabNumber>
+                <span>
+                    {label}
+                </span>
+            </TabWrapper>
         );
     }
 }

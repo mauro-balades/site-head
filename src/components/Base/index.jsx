@@ -9,13 +9,16 @@ export default () => {
             <TopNav />
             <LeftNav>
                 <Tabs>
-                    <div label="Gator">
+                    <div label="Basic tags">
                         See ya later, <em>Alligator</em>!
                     </div>
-                    <div label="Croc">
-                        After 'while, <em>Crocodile</em>!
+                    <div label="CEO tags">
+                        After while, <em>Crocodile</em>!
                     </div>
-                    <div label="Sarcosuchus">
+                    <div label="Theming tags">
+                        Nothing to see here, this tab is <em>extinct</em>!
+                    </div>
+                    <div label="Styles & Scripts">
                         Nothing to see here, this tab is <em>extinct</em>!
                     </div>
                 </Tabs>
