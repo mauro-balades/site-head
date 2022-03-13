@@ -18,16 +18,20 @@ export const PopupWrapper = styled.div`
     left: 0;
 
     overflow: hidden;
+
+    &.closed {
+        display: none;
+    }
 `
 
 export const Popup = styled.div`
     background: ${({ theme }) => theme.backgroundColor};
 
     width: 30%;
-    height: 50%;
+    max-height: 50%;
 
     border-radius: 10px;
-    padding: 20px;
+    padding: 30px;
 
     position: relative;
 `
@@ -35,6 +39,8 @@ export const Popup = styled.div`
 export const CodeWrapper = styled.div`
     width: 100%;
     height: 50%;
+
+    padding-top: 20px;
 
     & pre {
         height: 100%;

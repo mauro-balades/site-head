@@ -5,8 +5,14 @@ import Tabs from '../Tabs';
 import TopNav from '../TopNav';
 import PreviewPopup from '../PreviewPopup';
 
-import { add_tag, selectTags } from '../../slices/tags/tagsSlice';
+import { add_tag } from '../../slices/tags/tagsSlice';
 import { LeftNav, SiteHeadContent, TagContent, Heading, Section, Description, TextInput, PreviewButton } from './styles';
+
+function openPreviewPopup() {
+
+    let popup = document.getElementById("preview-popup")
+    popup.classList.remove("closed")
+}
 
 export default () => {
     const dispatch = useDispatch();
@@ -17,6 +23,7 @@ export default () => {
             <PreviewPopup />
             <SiteHeadContent>
                 <LeftNav>
+
                     <Tabs>
                         <div label="Basic tags">
                             <Section>
@@ -41,7 +48,8 @@ export default () => {
                             Nothing to see here, this tab is <em>extinct</em>!
                         </div>
                     </Tabs>
-                    <PreviewButton>Preview</PreviewButton>
+
+                    <PreviewButton onClick={openPreviewPopup}>Preview or export</PreviewButton>
                 </LeftNav>
                 <TagContent id="site-head-content">
 
