@@ -6,7 +6,7 @@ class Tab extends Component {
     static propTypes = {
         activeTab: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
-        index: PropTypes.string.isRequired,
+        index: PropTypes.number.isRequired,
         onClick: PropTypes.func.isRequired
     };
 

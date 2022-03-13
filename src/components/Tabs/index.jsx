@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ReactDOM from 'react-dom';
 import Tab from '../Tab';
 
 class Tabs extends Component {
@@ -43,12 +44,15 @@ class Tabs extends Component {
                         );
                     })}
                 </ol>
-                {/* <div className="tab-content">
-                    {children.map((child) => {
-                        if (child.props.label !== activeTab) return undefined;
-                        return child.props.children;
-                    })}
-                </div> */}
+                {children.map((child) => {
+                    if (child.props.label !== activeTab) return undefined;
+
+                    let element = document.getElementById('site-head-content');
+
+                    if (element) {
+                        ReactDOM.render(<div>{child.props.children}</div>, document.getElementById('site-head-content'));
+                    }
+                })}
             </div>
         );
     }
