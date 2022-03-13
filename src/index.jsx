@@ -15,7 +15,7 @@ const main = () => {
         </React.StrictMode>,
         document.getElementById('root')
     );
-}
+};
 
 if (typeof window !== 'undefined') {
     window.addEventListener('DOMContentLoaded', main, false);

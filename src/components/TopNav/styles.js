@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 export const NavigationWrapper = styled.nav`
@@ -8,10 +7,10 @@ export const NavigationWrapper = styled.nav`
     z-index: 9;
     background: ${({ theme }) => theme.leftNavBackgroundColor};
     position: absolute;
-`
+`;
 
 export const NavigationHeader = styled.h1`
     margin: 0;
     font-weight: 700;
     font-size: 20px;
-`
+`;

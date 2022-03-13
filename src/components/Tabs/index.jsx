@@ -30,7 +30,13 @@ class Tabs extends Component {
         } = this;
 
         return (
-            <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    height: '100%'
+                }}
+            >
                 <ol style={{ width: '100%' }}>
                     {children.map((child, index) => {
                         const { label } = child.props;
@@ -52,7 +58,10 @@ class Tabs extends Component {
                     let element = document.getElementById('site-head-content');
 
                     if (element) {
-                        ReactDOM.render(<TagContent>{child.props.children}</TagContent>, document.getElementById('site-head-content'));
+                        ReactDOM.render(
+                            <TagContent>{child.props.children}</TagContent>,
+                            document.getElementById('site-head-content')
+                        );
                     }
                 })}
             </div>

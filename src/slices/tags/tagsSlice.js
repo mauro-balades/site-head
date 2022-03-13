@@ -14,14 +14,14 @@ export const tagsSlice = createSlice({
             let payload = action.payload;
 
             let key = Object.keys(payload)[0];
-            let value = payload[key]
+            let value = payload[key];
 
-            if (!value || typeof value !== "undefined") {
+            if (!value || typeof value !== 'undefined') {
                 state.value[key] = value;
             } else {
-                delete state.value[key]
+                delete state.value[key];
             }
-        },
+        }
     }
 });
 

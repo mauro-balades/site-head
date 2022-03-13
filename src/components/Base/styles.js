@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 export const LeftNav = styled.nav`
@@ -8,7 +7,7 @@ export const LeftNav = styled.nav`
     background: ${({ theme }) => theme.leftNavBackgroundColor};
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     position: relative;
-`
+`;
 
 export const SiteHeadContent = styled.div`
     height: 100%;
@@ -16,7 +15,7 @@ export const SiteHeadContent = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-`
+`;
 
 export const TagContent = styled.div`
     margin: 0 auto;
@@ -25,7 +24,7 @@ export const TagContent = styled.div`
     padding: 0 10%;
     width: 66%;
     align-items: center;
-`
+`;
 
 export const PreviewButton = styled.div`
     width: 75%;
@@ -52,25 +51,25 @@ export const PreviewButton = styled.div`
 
     font-size: 17px;
     font-weight: 900;
-`
+`;
 
 /// COMMON COMPONENTS
 
 export const Section = styled.section`
     margin: 30px 0;
-`
+`;
 
 export const Heading = styled.h1`
     font-size: 30px;
     font-weight: 900;
     margin: 0;
-`
+`;
 
 export const Description = styled.p`
     font-size: 15px;
     font-weight: 700;
     margin: 5px 0 2px 0;
-`
+`;
 
 export const TextInput = styled.input`
     width: 100%;
@@ -84,7 +83,7 @@ export const TextInput = styled.input`
 
     outline: none;
     border: none;
-`
+`;
 
 export const TextArea = styled.textarea`
     width: 100%;
@@ -102,5 +101,4 @@ export const TextArea = styled.textarea`
     border: none;
 
     resize: none;
-`
-
+`;

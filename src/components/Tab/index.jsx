@@ -23,12 +23,8 @@ class Tab extends Component {
 
         return (
             <TabWrapper active={activeTab == label} onClick={onClick}>
-                <TabNumber>
-                    {index + 1}
-                </TabNumber>
-                <span>
-                    {label}
-                </span>
+                <TabNumber>{index + 1}</TabNumber>
+                <span>{label}</span>
             </TabWrapper>
         );
     }

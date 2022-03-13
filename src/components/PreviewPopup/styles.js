@@ -1,11 +1,10 @@
-
 import styled from 'styled-components';
 
 export const PopupWrapper = styled.div`
     position: absolute;
     z-index: 999;
 
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, 0.5);
 
     display: flex;
     justify-content: center;
@@ -22,7 +21,7 @@ export const PopupWrapper = styled.div`
     &.closed {
         display: none;
     }
-`
+`;
 
 export const Popup = styled.div`
     background: ${({ theme }) => theme.backgroundColor};
@@ -34,7 +33,7 @@ export const Popup = styled.div`
     padding: 30px;
 
     position: relative;
-`
+`;
 
 export const CodeWrapper = styled.div`
     width: 100%;
@@ -46,5 +45,4 @@ export const CodeWrapper = styled.div`
         height: 100%;
         border-radius: 10px;
     }
-`
-
+`;
