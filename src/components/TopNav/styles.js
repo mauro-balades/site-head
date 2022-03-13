@@ -7,7 +7,7 @@ export const NavigationWrapper = styled.nav`
     padding: 20px;
     z-index: 9;
     background: ${({ theme }) => theme.leftNavBackgroundColor};
-    position: relative;
+    position: absolute;
 `
 
 export const NavigationHeader = styled.h1`
