@@ -20,6 +20,11 @@ export default () => {
 
     let codeString = "<head>";
 
+    let charset = tags.charset;
+    if (charset) {
+        codeString += `\n\t<meta charset="${escape(charset)}">`
+    }
+
     let title = tags.title;
     if (title) {
         codeString += `\n\t<title>${escape(title)}</title>\n`

@@ -16,7 +16,7 @@ export const tagsSlice = createSlice({
             let key = Object.keys(payload)[0];
             let value = payload[key]
 
-            if (value !== '' || value !== false) {
+            if (value !== '' || value !== false || value !== null || typeof value !== "undefined") {
                 state.value[key] = value;
             } else {
                 delete state.value[key]

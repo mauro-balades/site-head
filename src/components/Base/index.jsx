@@ -1,4 +1,5 @@
 import React from 'react';
+import Creatable from 'react-select/creatable';
 import { useDispatch } from 'react-redux';
 
 import Tabs from '../Tabs';
@@ -8,8 +9,14 @@ import PreviewPopup from '../PreviewPopup';
 import { add_tag } from '../../slices/tags/tagsSlice';
 import { LeftNav, SiteHeadContent, TagContent, Heading, Section, Description, TextInput, PreviewButton, TextArea } from './styles';
 
-function openPreviewPopup() {
+const options = [
+    { value: 'utf-8', label: 'UTF-8' },
+    { value: 'utf-16', label: 'UTF-16' },
+    { value: 'windows-1252', label: 'Windows-1252' },
+    { value: 'iso-8859', label: 'ISO-8859' },
+]
 
+function openPreviewPopup() {
     let popup = document.getElementById("preview-popup")
     popup.classList.remove("closed")
 }
@@ -58,29 +65,33 @@ export default () => {
                                 </Section>
                                 <Section>
                                     <Heading>
+                                        Charset
+                                    </Heading>
+                                    <Description>
+                                        Specifies the character encoding for the HTML document.
+                                    </Description>
+                                    <div style={{ marginTop: '10px' }}>
+                                        <Creatable defaultValue={false} backspaceRemovesValue={true} isClearable={true} onChange={(value) => dispatch(add_tag({ charset: value.label }))} options={options} />
+                                    </div>
+                                </Section>
+                                <Section>
+                                    <Heading>
                                         Viewport
                                     </Heading>
                                     <Description>
                                         This gives the browser instructions on how to control the page's dimensions and scaling. If checked, it will set it to width=device-width and to initial-scale=1.0 by default.
                                     </Description>
-                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
                                         <input
                                             type="checkbox"
                                             checked={checkedViewport}
                                             onChange={handleViewportChange}
+                                            id="viewport-checkbox"
                                         />
-                                        <p>
+                                        <label for="viewport-checkbox" style={{ marginLeft: '5px' }}>
                                             Add viewport to the head tag
-                                        </p>
+                                        </label>
                                     </div>
-                                </Section>
-                                <Section>
-                                    <Heading>
-                                        Charset
-                                    </Heading>
-                                    <Description>
-                                    Specifies the character encoding for the HTML document.
-                                    </Description>
                                 </Section>
                             </div>
                         </div>
