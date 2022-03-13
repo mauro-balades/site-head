@@ -3,9 +3,8 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import Router from 'pages';
 
 const App = styled.div`
-  background-color: ${({ theme }) => theme.secondary};
-  text-align: center;
-  height: 100vh;
+    background-color: ${({ theme }) => theme.secondary};
+    height: 100vh;
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -19,24 +18,26 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const lightMode = {
-  backgroundColor: '#F6F8FC',
-  link: 'rgb(112, 76, 182)',
-  text: 'black'
+    backgroundColor: '#F6F8FC',
+    leftNavBackgroundColor: '#FAFAFA',
+    link: 'rgb(112, 76, 182)',
+    text: 'black'
 };
 
 const darkMode = {
-  backgroundColor: 'black',
-  link: 'rgb(112, 76, 182)',
-  text: 'white'
+    backgroundColor: 'black',
+    leftNavBackgroundColor: '#FAFAFA',
+    link: 'rgb(112, 76, 182)',
+    text: 'white'
 };
 
 export default () => {
-  return (
-    <ThemeProvider theme={darkMode}>
-      <GlobalStyle />
-      <App>
-        <Router />
-      </App>
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider theme={lightMode}>
+            <GlobalStyle />
+            <App>
+                <Router />
+            </App>
+        </ThemeProvider>
+    );
 };
