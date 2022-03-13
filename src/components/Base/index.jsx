@@ -1,9 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+
 import Tabs from '../Tabs';
 import TopNav from '../TopNav';
-import { LeftNav, SiteHeadContent, TagContent, Heading, Section, Description, TextInput, PreviewButton } from './styles';
+import PreviewPopup from '../PreviewPopup';
+
 import { add_tag, selectTags } from '../../slices/tags/tagsSlice';
+import { LeftNav, SiteHeadContent, TagContent, Heading, Section, Description, TextInput, PreviewButton } from './styles';
 
 export default () => {
     const dispatch = useDispatch();
@@ -11,6 +14,7 @@ export default () => {
     return (
         <div style={{ height: '100vh', position: 'relative', overflow: 'hidden' }}>
             <TopNav />
+            <PreviewPopup />
             <SiteHeadContent>
                 <LeftNav>
                     <Tabs>
