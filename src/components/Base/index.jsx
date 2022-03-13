@@ -1,5 +1,9 @@
 import React from 'react';
+
+import Select from 'react-select';
 import Creatable from 'react-select/creatable';
+import makeAnimated from 'react-select/animated';
+
 import { useDispatch } from 'react-redux';
 
 import Tabs from '../Tabs';
@@ -9,12 +13,19 @@ import PreviewPopup from '../PreviewPopup';
 import { add_tag } from '../../slices/tags/tagsSlice';
 import { LeftNav, SiteHeadContent, TagContent, Heading, Section, Description, TextInput, PreviewButton, TextArea } from './styles';
 
-const options = [
+const charsetOptions = [
     { value: 'utf-8', label: 'UTF-8' },
     { value: 'utf-16', label: 'UTF-16' },
     { value: 'windows-1252', label: 'Windows-1252' },
     { value: 'iso-8859', label: 'ISO-8859' },
 ]
+
+const soicalOptions = [
+    { value: 'og', label: 'Facebook / Open Graph' },
+    { value: 'twitter', label: 'Twitter' },
+]
+
+const animatedComponents = makeAnimated();
 
 function openPreviewPopup() {
     let popup = document.getElementById("preview-popup")
@@ -24,11 +35,17 @@ function openPreviewPopup() {
 export default () => {
     const dispatch = useDispatch();
     const [checkedViewport, setCheckedViewport] = React.useState(false);
+    const [checkedImage, setCheckedImage] = React.useState(false);
 
     const handleViewportChange = () => {
         setCheckedViewport(!checkedViewport);
         console.log(checkedViewport)
         dispatch(add_tag({ viewport: !checkedViewport }))
+    };
+
+    const handleImageChange = () => {
+        setCheckedImage(!checkedImage);
+        dispatch(add_tag({ image: !checkedImage }))
     };
 
     return (
@@ -71,7 +88,7 @@ export default () => {
                                         Specifies the character encoding for the HTML document.
                                     </Description>
                                     <div style={{ marginTop: '10px' }}>
-                                        <Creatable defaultValue={false} backspaceRemovesValue={true} isClearable={true} onChange={(value) => dispatch(add_tag({ charset: value.label }))} options={options} />
+                                        <Creatable defaultValue={false} backspaceRemovesValue={true} isClearable={true} onChange={(value) => dispatch(add_tag({ charset: value.label }))} options={charsetOptions} />
                                     </div>
                                 </Section>
                                 <Section>
@@ -95,8 +112,48 @@ export default () => {
                                 </Section>
                             </div>
                         </div>
-                        <div label="CEO tags">
-                            After while, <em>Crocodile</em>!
+                        <div label="SEO tags">
+                            <div>
+                                <Section>
+                                    <Heading>
+                                        Social media formats
+                                    </Heading>
+                                    <Description>
+                                        Specifies the character encoding for the HTML document.
+                                    </Description>
+                                    <div style={{ marginTop: '10px' }}>
+                                        <Select
+                                            closeMenuOnSelect={false}
+                                            components={animatedComponents}
+                                            isMulti
+                                            options={soicalOptions}
+                                            onChange={(value) => {
+                                                var obj = {};
+                                                obj[value[0].value] = value[0].label;
+                                                dispatch(add_tag(obj))}}
+                                        />
+                                    </div>
+                                </Section>
+                                <Section>
+                                    <Heading>
+                                        Image
+                                    </Heading>
+                                    <Description>
+                                        With the visual nature of the web your Meta Tag Image is the most valuable graphic content you can create to encourage users to click and visit your website.
+                                    </Description>
+                                    <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
+                                        <input
+                                            type="checkbox"
+                                            checked={checkedImage}
+                                            onChange={handleImageChange}
+                                            id="viewport-checkbox"
+                                        />
+                                        <label for="viewport-checkbox" style={{ marginLeft: '5px' }}>
+                                            Allow image in the meta tags.
+                                        </label>
+                                    </div>
+                                </Section>
+                            </div>
                         </div>
                         <div label="Theming tags">
                             Nothing to see here, this tab is <em>extinct</em>!

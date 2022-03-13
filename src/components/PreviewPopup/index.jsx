@@ -21,23 +21,36 @@ export default () => {
     let codeString = "<head>";
 
     let charset = tags.charset;
-    if (charset) {
+    if (charset || !(typeof charset === "undefined")) {
         codeString += `\n\t<meta charset="${escape(charset)}">`
     }
 
     let title = tags.title;
-    if (title) {
+    if (title || !(typeof title === "undefined")) {
         codeString += `\n\t<title>${escape(title)}</title>\n`
     }
 
     let description = tags.description;
-    if (description) {
+    if (description || !(typeof description === "undefined")) {
         codeString += `\n\t<meta name="description" content="${escape(description.replace(/[\r\n\v]+/g, " "))}">`
     }
 
     let viewport = tags.viewport;
-    if (viewport) {
+    if (viewport || !(typeof viewport === "undefined")) {
         codeString += `\n\t<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+    }
+
+    let twitter = tags.twitter;
+    if (twitter || !(typeof twitter === "undefined")) {
+        codeString += `\n\n\t<!-- Twitter -->`
+        codeString += `\n\t<meta property="twitter:card" content="summary_large_image">`
+        codeString += `\n\t<meta property="twitter:url" content="">` // TODO
+        codeString += `\n\t<meta property="twitter:title" content="${typeof title === "undefined" ? '' : escape(title)}">`
+        codeString += `\n\t<meta property="twitter:description" content="${typeof description === "undefined" ? '' : escape(description)}">`
+
+        if (tags.image || !(typeof tags.image === "undefined")) {
+            codeString += `\n\t<meta property="twitter:image" content="[[ YOUR IMAGE URL HERE ]]"></meta>`
+        }
     }
 
     codeString += "\n</head>"
