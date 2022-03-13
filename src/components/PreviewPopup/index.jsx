@@ -18,13 +18,17 @@ function closePopup() {
 export default () => {
     const tags = useSelector(selectTags);
 
-    let codeString = "<head>\n";
+    let codeString = "<head>";
 
     let title = tags.title;
     if (title) {
-        codeString += `\t<title>${escape(title)}</title>`
+        codeString += `\n\t<title>${escape(title)}</title>\n`
     }
 
+    let description = tags.description;
+    if (description) {
+        codeString += `\n\t<meta name="description" content="${escape(description.replace(/[\r\n\v]+/g, " "))}">`
+    }
     codeString += "\n</head>"
 
     return (

@@ -57,7 +57,7 @@ export const PreviewButton = styled.div`
 /// COMMON COMPONENTS
 
 export const Section = styled.section`
-    margin: 10px 0;
+    margin: 30px 0;
 `
 
 export const Heading = styled.h1`
@@ -84,5 +84,23 @@ export const TextInput = styled.input`
 
     outline: none;
     border: none;
+`
+
+export const TextArea = styled.textarea`
+    width: 100%;
+    background: ${({ theme }) => theme.secondaryBackgroundColor};
+
+    border-radius: 10px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    padding: 15px;
+    font-size: 15px;
+    margin-top: 10px;
+
+    height: 60px;
+
+    outline: none;
+    border: none;
+
+    resize: none;
 `
 
