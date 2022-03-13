@@ -7,6 +7,7 @@ export const LeftNav = styled.nav`
     z-index: 1;
     background: ${({ theme }) => theme.leftNavBackgroundColor};
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    position: relative;
 `
 
 export const SiteHeadContent = styled.div`
@@ -24,6 +25,33 @@ export const TagContent = styled.div`
     padding: 0 10%;
     width: 66%;
     align-items: center;
+`
+
+export const PreviewButton = styled.div`
+    width: 75%;
+
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    cursor: pointer;
+
+    display: flex;
+    background: ${({ theme }) => theme.secondaryBackgroundColor};
+
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 10px;
+
+    font-size: 17px;
+    font-weight: 900;
 `
 
 /// COMMON COMPONENTS
@@ -46,7 +74,8 @@ export const Description = styled.p`
 
 export const TextInput = styled.input`
     width: 100%;
-    background: #E7E7E7;
+    background: ${({ theme }) => theme.secondaryBackgroundColor};
+
     border-radius: 10px;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     padding: 15px;

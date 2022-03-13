@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import Tabs from '../Tabs';
 import TopNav from '../TopNav';
-import { LeftNav, SiteHeadContent, TagContent, Heading, Section, Description, TextInput } from './styles';
+import { LeftNav, SiteHeadContent, TagContent, Heading, Section, Description, TextInput, PreviewButton } from './styles';
 import { add_tag, selectTags } from '../../slices/tags/tagsSlice';
 
 export default () => {
@@ -37,6 +37,7 @@ export default () => {
                             Nothing to see here, this tab is <em>extinct</em>!
                         </div>
                     </Tabs>
+                    <PreviewButton>Preview</PreviewButton>
                 </LeftNav>
                 <TagContent id="site-head-content">
 

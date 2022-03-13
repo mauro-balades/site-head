@@ -13,6 +13,8 @@ export const TabWrapper = styled.li`
 
     font-size: 20px;
     font-weight: 900;
+
+    cursor: pointer;
 `
 export const TabNumber = styled.div`
     width: 40px;

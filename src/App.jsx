@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
 
 const lightMode = {
     backgroundColor: '#F6F8FC',
+    secondaryBackgroundColor: '#DFDFDF',
     leftNavBackgroundColor: '#FAFAFA',
     link: 'rgb(112, 76, 182)',
     text: 'black'
