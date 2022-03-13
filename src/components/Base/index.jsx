@@ -16,6 +16,13 @@ function openPreviewPopup() {
 
 export default () => {
     const dispatch = useDispatch();
+    const [checkedViewport, setCheckedViewport] = React.useState(false);
+
+    const handleViewportChange = () => {
+        setCheckedViewport(!checkedViewport);
+        console.log(checkedViewport)
+        dispatch(add_tag({ viewport: !checkedViewport }))
+    };
 
     return (
         <div style={{ height: '100vh', position: 'relative', overflow: 'hidden' }}>
@@ -54,8 +61,18 @@ export default () => {
                                         Viewport
                                     </Heading>
                                     <Description>
-                                    This gives the browser instructions on how to control the page's dimensions and scaling. If checked, it will set it to width=device-width and to initial-scale=1.0 by default.
+                                        This gives the browser instructions on how to control the page's dimensions and scaling. If checked, it will set it to width=device-width and to initial-scale=1.0 by default.
                                     </Description>
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <input
+                                            type="checkbox"
+                                            checked={checkedViewport}
+                                            onChange={handleViewportChange}
+                                        />
+                                        <p>
+                                            Add viewport to the head tag
+                                        </p>
+                                    </div>
                                 </Section>
                                 <Section>
                                     <Heading>

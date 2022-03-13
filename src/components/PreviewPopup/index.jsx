@@ -29,6 +29,12 @@ export default () => {
     if (description) {
         codeString += `\n\t<meta name="description" content="${escape(description.replace(/[\r\n\v]+/g, " "))}">`
     }
+
+    let viewport = tags.viewport;
+    if (viewport) {
+        codeString += `\n\t<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+    }
+
     codeString += "\n</head>"
 
     return (
