@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import Tab from '../Tab';
 
+import { TagContent } from '../Base/styles';
+
 class Tabs extends Component {
     static propTypes = {
         children: PropTypes.instanceOf(Array).isRequired
@@ -50,7 +52,7 @@ class Tabs extends Component {
                     let element = document.getElementById('site-head-content');
 
                     if (element) {
-                        ReactDOM.render(<div>{child.props.children}</div>, document.getElementById('site-head-content'));
+                        ReactDOM.render(<TagContent>{child.props.children}</TagContent>, document.getElementById('site-head-content'));
                     }
                 })}
             </div>

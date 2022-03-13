@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import Tabs from '../Tabs';
 import TopNav from '../TopNav';
-import { LeftNav, SiteHeadContent } from './styles';
-
+import { LeftNav, SiteHeadContent, TagContent, Heading, Section, Description, TextInput } from './styles';
+import { add_tag } from '../../slices/tags/tagsSlice';
 
 export default () => {
+    const dispatch = useDispatch();
+
     return (
         <div style={{ height: '100vh', position: 'relative', overflow: 'hidden' }}>
             <TopNav />
@@ -12,7 +15,18 @@ export default () => {
                 <LeftNav>
                     <Tabs>
                         <div label="Basic tags">
-                            See ya later, <em>Alligator</em>!
+                            <Section>
+                                <Heading>
+                                    Title
+                                </Heading>
+                                <Description>
+                                    The <span style={{ background: '#ddd', borderRadius: '1px', padding: '3px' }}>&lt;title&gt;</span> tag defines the title of the document. The title must be text-only, and it is shown in the browser's title bar or in the page's tab and in search engines.
+                                </Description>
+                                <TextInput onChange={ (e) => {
+                                    console.log(e.target.value)
+                                    dispatch(add_tag({ title: e.target.value }))
+                                } } placeholder='Enter your title here' />
+                            </Section>
                         </div>
                         <div label="CEO tags">
                             After while, <em>Crocodile</em>!
@@ -25,9 +39,9 @@ export default () => {
                         </div>
                     </Tabs>
                 </LeftNav>
-                <div id="site-head-content">
+                <TagContent id="site-head-content">
 
-                </div>
+                </TagContent>
             </SiteHeadContent>
         </div>
     );
