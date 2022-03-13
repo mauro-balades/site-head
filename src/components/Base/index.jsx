@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import Tabs from '../Tabs';
 import TopNav from '../TopNav';
 import { LeftNav, SiteHeadContent, TagContent, Heading, Section, Description, TextInput } from './styles';
-import { add_tag } from '../../slices/tags/tagsSlice';
+import { add_tag, selectTags } from '../../slices/tags/tagsSlice';
 
 export default () => {
     const dispatch = useDispatch();
@@ -23,9 +23,8 @@ export default () => {
                                     The <span style={{ background: '#ddd', borderRadius: '1px', padding: '3px' }}>&lt;title&gt;</span> tag defines the title of the document. The title must be text-only, and it is shown in the browser's title bar or in the page's tab and in search engines.
                                 </Description>
                                 <TextInput onChange={ (e) => {
-                                    console.log(e.target.value)
                                     dispatch(add_tag({ title: e.target.value }))
-                                } } placeholder='Enter your title here' />
+                                }} placeholder='Enter your title here' />
                             </Section>
                         </div>
                         <div label="CEO tags">

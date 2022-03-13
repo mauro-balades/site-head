@@ -6,13 +6,21 @@ export const tagsSlice = createSlice({
         value: {}
     },
     reducers: {
-        add_tag: (state) => {
+        add_tag: (state, action) => {
             // Redux Toolkit allows us to write "mutating" logic in reducers. It
             // doesn't actually mutate the state because it uses the Immer library,
             // which detects changes to a "draft state" and produces a brand new
             // immutable state based off those changes
-            // state.value += 1;
-            console.log(state)
+            let payload = action.payload;
+
+            let key = Object.keys(payload)[0];
+            let value = payload[key]
+
+            if (value !== '') {
+                state.value[key] = value;
+            } else {
+                delete state.value[key]
+            }
         },
     }
 });
