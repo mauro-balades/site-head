@@ -19,7 +19,6 @@ export default () => {
     const tags = useSelector(selectTags);
 
     let codeString = "<head>";
-
     let charset = tags.charset;
     if (charset || !(typeof charset === "undefined")) {
         codeString += `\n\t<meta charset="${escape(charset)}">`
@@ -50,6 +49,20 @@ export default () => {
 
         if (tags.image || !(typeof tags.image === "undefined")) {
             codeString += `\n\t<meta property="twitter:image" content="[[ YOUR IMAGE URL HERE ]]"></meta>`
+        }
+    }
+
+    let og = tags.og;
+    if (og || !(typeof og === "undefined")) {
+
+        codeString += `\n\n\t<!-- Open Graph / Facebook -->`
+        codeString += `\n\t<meta property="og:type" content="website">`
+        codeString += `\n\t<meta property="og:url" content="">` // TODO
+        codeString += `\n\t<meta property="og:title" content="${typeof title === "undefined" ? '' : escape(title)}">`
+        codeString += `\n\t<meta property="og:description" content="${typeof description === "undefined" ? '' : escape(description)}">`
+
+        if (tags.image || !(typeof tags.image === "undefined")) {
+            codeString += `\n\t<meta property="og:image" content="[[ YOUR IMAGE URL HERE ]]"></meta>`
         }
     }
 

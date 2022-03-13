@@ -127,10 +127,23 @@ export default () => {
                                             components={animatedComponents}
                                             isMulti
                                             options={soicalOptions}
-                                            onChange={(value) => {
-                                                var obj = {};
-                                                obj[value[0].value] = value[0].label;
-                                                dispatch(add_tag(obj))}}
+                                            onChange={(values) => {
+
+                                                if (values.length == 0) {
+                                                    for (var i = 0; i < soicalOptions.length; i++) {
+                                                        var obj = {};
+                                                        obj[soicalOptions[i].value] = null;
+                                                        dispatch(add_tag(obj))
+                                                    }
+
+                                                }
+
+                                                for (var i = 0; i < values.length; i++) {
+                                                    var obj = {};
+                                                    obj[values[i].value] = values[i].label;
+                                                    dispatch(add_tag(obj))
+                                                }
+                                                }}
                                         />
                                     </div>
                                 </Section>
