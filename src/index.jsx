@@ -4,6 +4,9 @@ import './index.css';
 import { Provider } from 'react-redux';
 import App from './App';
 import store from './app/store';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import * as serviceWorker from './serviceWorker';
 
 const main = () => {
@@ -13,7 +16,10 @@ const main = () => {
                 <App />
             </Provider>
         </React.StrictMode>,
-        document.getElementById('root')
+        document.getElementById('root'),
+        () => {
+            AOS.init();
+        }
     );
 };
 
