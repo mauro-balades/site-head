@@ -4,17 +4,19 @@ export const TabWrapper = styled.li`
     width: 80%;
     display: flex;
     background: ${({ active }) => (active ? '#D9E9F2' : 'transparent')};
-    border: 1px solid #cae1ef;
+    border: 1px solid #8FC5E3;
     align-items: center;
     margin: 20px 0 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px;
 
     font-size: 20px;
     font-weight: 900;
 
+    user-select: none;
     cursor: pointer;
 `;
+
 export const TabNumber = styled.div`
     width: 40px;
     height: 40px;
