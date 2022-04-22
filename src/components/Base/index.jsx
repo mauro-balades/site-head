@@ -5,10 +5,12 @@ import Creatable from 'react-select/creatable';
 import makeAnimated from 'react-select/animated';
 
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Tabs from '../Tabs';
 import TopNav from '../TopNav';
 import PreviewPopup from '../PreviewPopup';
+import { selectTags } from '../../slices/tags/tagsSlice';
 
 import { add_tag } from '../../slices/tags/tagsSlice';
 import {
@@ -99,6 +101,7 @@ export default () => {
                                                 })
                                             );
                                         }}
+                                        value={useSelector(selectTags).title}
                                         placeholder="Enter your title here"
                                     />
                                 </Section>
@@ -120,6 +123,7 @@ export default () => {
                                                 })
                                             );
                                         }}
+                                        value={useSelector(selectTags).description}
                                         placeholder="Enter your description here (new lines will be ignored)"
                                     />
                                 </Section>
@@ -141,6 +145,7 @@ export default () => {
                                                     })
                                                 )
                                             }
+                                            // TODO: update the value here
                                             options={charsetOptions}
                                         />
                                     </div>
@@ -256,7 +261,34 @@ export default () => {
                             </div>
                         </div>
                         <div label="Theming tags">
-                            Nothing to see here, this tab is <em>extinct</em>!
+                            <div>
+                                <Section>
+                                    <Heading>Icon</Heading>
+                                    <Description>
+                                        A favicon, also known as a shortcut icon, website icon, tab icon, URL icon, or bookmark icon, is a file containing one or more small icons, associated with a particular website or web page.
+                                    </Description>
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            marginTop: '10px'
+                                        }}
+                                    >
+                                        <input
+                                            type="checkbox"
+                                            checked={checkedImage}
+                                            onChange={handleImageChange}
+                                            id="viewport-checkbox"
+                                        />
+                                        <label
+                                            for="viewport-checkbox"
+                                            style={{ marginLeft: '5px' }}
+                                        >
+                                            Allow icons in your webpage.
+                                        </label>
+                                    </div>
+                                </Section>
+                            </div>
                         </div>
                         <div label="Styles & Scripts">
                             Nothing to see here, this tab is <em>extinct</em>!
