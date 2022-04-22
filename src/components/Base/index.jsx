@@ -9,10 +9,12 @@ import { useSelector } from 'react-redux';
 
 import Tabs from '../Tabs';
 import TopNav from '../TopNav';
+import HomePage from '../HomePage';
 import PreviewPopup from '../PreviewPopup';
-import { selectTags } from '../../slices/tags/tagsSlice';
 
 import { add_tag } from '../../slices/tags/tagsSlice';
+import { selectTags } from '../../slices/tags/tagsSlice';
+
 import {
     LeftNav,
     SiteHeadContent,
@@ -290,16 +292,19 @@ export default () => {
                                 </Section>
                             </div>
                         </div>
-                        <div label="Styles & Scripts">
+                        {/* TODO */}
+                        {/* <div label="Styles & Scripts">
                             Nothing to see here, this tab is <em>extinct</em>!
-                        </div>
+                        </div> */}
                     </Tabs>
 
                     <PreviewButton onClick={openPreviewPopup}>
                         Preview or export
                     </PreviewButton>
                 </LeftNav>
-                <TagContent id="site-head-content"></TagContent>
+                <TagContent id="site-head-content">
+                    <HomePage />
+                </TagContent>
             </SiteHeadContent>
         </div>
     );
