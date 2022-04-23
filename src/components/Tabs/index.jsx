@@ -41,11 +41,13 @@ class Tabs extends Component {
                     {children.map((child, index) => {
                         const { label } = child.props;
 
+                        if (label === '_ignore') return null;
+
                         return (
                             <Tab
                                 activeTab={activeTab}
                                 key={index}
-                                index={index}
+                                index={index - 1}
                                 label={label}
                                 onClick={onClickTabItem}
                             />

@@ -81,6 +81,7 @@ export default () => {
             <SiteHeadContent>
                 <LeftNav>
                     <Tabs>
+                        <div label="_ignore"></div>
                         <div label="Basic tags">
                             <div>
                                 <Section>
