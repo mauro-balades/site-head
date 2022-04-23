@@ -36,6 +36,12 @@ export default () => {
         )}">`;
     }
 
+    console.log(tags.icon)
+    let icon = tags.icon;
+    if (icon || !(typeof icon === 'undefined')) {
+        codeString += `\n\t<link rel="icon" href="/favicon.ico" />`
+    }
+
     let viewport = tags.viewport;
     if (viewport || !(typeof viewport === 'undefined')) {
         codeString += `\n\t<meta name="viewport" content="width=device-width, initial-scale=1.0">`;

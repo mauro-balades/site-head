@@ -50,6 +50,7 @@ export default () => {
     const dispatch = useDispatch();
     const [checkedViewport, setCheckedViewport] = React.useState(false);
     const [checkedImage, setCheckedImage] = React.useState(false);
+    const [checkedIcon, setCheckedIcon] = React.useState(false);
 
     const handleViewportChange = () => {
         setCheckedViewport(!checkedViewport);
@@ -60,6 +61,11 @@ export default () => {
     const handleImageChange = () => {
         setCheckedImage(!checkedImage);
         dispatch(add_tag({ image: !checkedImage }));
+    };
+
+    const handleIconChange = () => {
+        setCheckedIcon(!checkedIcon);
+        dispatch(add_tag({ icon: !checkedIcon }));
     };
 
     return (
@@ -278,8 +284,8 @@ export default () => {
                                     >
                                         <input
                                             type="checkbox"
-                                            checked={checkedImage}
-                                            onChange={handleImageChange}
+                                            checked={checkedIcon}
+                                            onChange={handleIconChange}
                                             id="viewport-checkbox"
                                         />
                                         <label
@@ -297,7 +303,6 @@ export default () => {
                             Nothing to see here, this tab is <em>extinct</em>!
                         </div> */}
                     </Tabs>
-
                     <PreviewButton onClick={openPreviewPopup}>
                         Preview or export
                     </PreviewButton>
