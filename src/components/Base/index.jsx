@@ -54,7 +54,6 @@ export default () => {
 
     const handleViewportChange = () => {
         setCheckedViewport(!checkedViewport);
-        console.log(checkedViewport);
         dispatch(add_tag({ viewport: !checkedViewport }));
     };
 
@@ -257,10 +256,10 @@ export default () => {
                                             type="checkbox"
                                             checked={checkedImage}
                                             onChange={handleImageChange}
-                                            id="viewport-checkbox"
+                                            id="image-checkbox"
                                         />
                                         <label
-                                            for="viewport-checkbox"
+                                            for="image-checkbox"
                                             style={{ marginLeft: '5px' }}
                                         >
                                             Allow image in the meta tags.
@@ -287,10 +286,10 @@ export default () => {
                                             type="checkbox"
                                             checked={checkedIcon}
                                             onChange={handleIconChange}
-                                            id="viewport-checkbox"
+                                            id="icon-checkbox"
                                         />
                                         <label
-                                            for="viewport-checkbox"
+                                            for="icon-checkbox"
                                             style={{ marginLeft: '5px' }}
                                         >
                                             Allow icons in your webpage.

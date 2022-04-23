@@ -19,36 +19,36 @@ export default () => {
     const tags = useSelector(selectTags);
 
     let codeString = '<head>';
+
     let charset = tags.charset;
-    if (charset || !(typeof charset === 'undefined')) {
+    if (charset) {
         codeString += `\n\t<meta charset="${escape(charset)}">`;
     }
 
     let title = tags.title;
-    if (title || !(typeof title === 'undefined')) {
+    if (title) {
         codeString += `\n\t<title>${escape(title)}</title>\n`;
     }
 
     let description = tags.description;
-    if (description || !(typeof description === 'undefined')) {
+    if (description) {
         codeString += `\n\t<meta name="description" content="${escape(
             description.replace(/[\r\n\v]+/g, ' ')
         )}">`;
     }
 
-    console.log(tags.icon)
     let icon = tags.icon;
-    if (icon || !(typeof icon === 'undefined')) {
+    if (icon) {
         codeString += `\n\t<link rel="icon" href="/favicon.ico" />`
     }
 
     let viewport = tags.viewport;
-    if (viewport || !(typeof viewport === 'undefined')) {
+    if (viewport) {
         codeString += `\n\t<meta name="viewport" content="width=device-width, initial-scale=1.0">`;
     }
 
     let twitter = tags.twitter;
-    if (twitter || !(typeof twitter === 'undefined')) {
+    if (twitter) {
         codeString += `\n\n\t<!-- Twitter -->`;
         codeString += `\n\t<meta property="twitter:card" content="summary_large_image">`;
         codeString += `\n\t<meta property="twitter:url" content="">`; // TODO
@@ -65,7 +65,7 @@ export default () => {
     }
 
     let og = tags.og;
-    if (og || !(typeof og === 'undefined')) {
+    if (og) {
         codeString += `\n\n\t<!-- Open Graph / Facebook -->`;
         codeString += `\n\t<meta property="og:type" content="website">`;
         codeString += `\n\t<meta property="og:url" content="">`; // TODO

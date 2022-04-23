@@ -77,30 +77,39 @@ export const TextInput = styled.input`
     width: 100%;
     background: ${({ theme }) => theme.secondaryBackgroundColor};
 
-    border-radius: 10px;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(204, 204, 204);
+
+    // box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    padding: 15px 0 15px 15px;
     font-size: 15px;
     margin-top: 10px;
 
     outline: none;
-    border: none;
+
+    &:focus {
+        border-color: #2684FF;
+    }
 `;
 
 export const TextArea = styled.textarea`
     width: 100%;
     background: ${({ theme }) => theme.secondaryBackgroundColor};
 
-    border-radius: 10px;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    padding: 15px;
+    border-radius: 5px;
+    // box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    padding: 15px 0 15px 15px;
+
     font-size: 15px;
     margin-top: 10px;
 
     height: 60px;
 
     outline: none;
-    border: none;
-
+    border: 1px solid rgb(204, 204, 204);
     resize: none;
+
+    &:focus {
+        border-color: #2684FF;
+    }
 `;
