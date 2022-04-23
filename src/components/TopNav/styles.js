@@ -19,6 +19,8 @@ export const NavigationHeader = styled.h1`
     font-size: 20px;
 
     margin-left: 40px;
+    display: flex;
+    align-items: center;
 `;
 
 export const NavigationLinks = styled.div`
