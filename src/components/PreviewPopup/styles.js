@@ -27,7 +27,6 @@ export const Popup = styled.div`
     background: ${({ theme }) => theme.backgroundColor};
 
     width: 30%;
-    max-height: 50%;
 
     border-radius: 10px;
     padding: 30px;
