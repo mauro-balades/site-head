@@ -60,7 +60,7 @@ export default () => {
         }">`;
 
         if (tags.image || !(typeof tags.image === 'undefined')) {
-            codeString += `\n\t<meta property="twitter:image" content="[[ YOUR IMAGE URL HERE ]]"></meta>`;
+            codeString += `\n\t<meta property="twitter:image" content="[[ YOUR IMAGE URL HERE ]]">`;
         }
     }
 
@@ -77,7 +77,7 @@ export default () => {
         }">`;
 
         if (tags.image || !(typeof tags.image === 'undefined')) {
-            codeString += `\n\t<meta property="og:image" content="[[ YOUR IMAGE URL HERE ]]"></meta>`;
+            codeString += `\n\t<meta property="og:image" content="[[ YOUR IMAGE URL HERE ]]">`;
         }
     }
 
